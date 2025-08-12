@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///L:/Downloads/sonnental_map_comic%20(5).html -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikumsstellen der Sozialassistent*innen - Stadt Sonnental</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Comic Sans MS', 'Trebuchet MS', cursive, sans-serif;
+            background: linear-gradient(45deg, #FFE066, #FF6B95, #4ECDC4, #95E1D3);
+            background-size: 400% 400%;
+            animation: backgroundShift 10s ease infinite;
+        }
+        
+        @keyframes backgroundShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .map-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border: 5px solid #FF6B95;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #FF6B95, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .map {
+            position: relative;
+            width: 100%;
+            height: 900px;
+            background: radial-gradient(circle at 30% 20%, #B8E6B8 0%, #87CEEB 50%, #98FB98 100%);
+            border: 4px solid #FF6B95;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Stadtteile mit Comic-Farben */
+        .district {
+            position: absolute;
+            border: 3px solid #333;
+            border-radius: 15px;
+            opacity: 0.6;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .zentrum {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            top: 35%;
+            left: 40%;
+            width: 20%;
+            height: 18%;
+        }
+        
+        .nordviertel {
+            background: linear-gradient(45deg, #FF69B4, #FF1493);
+            top: 5%;
+            left: 30%;
+            width: 35%;
+            height: 28%;
+        }
+        
+        .westbezirk {
+            background: linear-gradient(45deg, #FF7F50, #FF4500);
+            top: 35%;
+            left: 5%;
+            width: 30%;
+            height: 25%;
+        }
+        
+        .suedstadt {
+            background: linear-gradient(45deg, #32CD32, #228B22);
+            top: 62%;
+            left: 35%;
+            width: 30%;
+            height: 25%;
+        }
+        
+        .oststadt {
+            background: linear-gradient(45deg, #FFA500, #FF8C00);
+            top: 30%;
+            left: 68%;
+            width: 28%;
+            height: 25%;
+        }
+        
+        .talviertel {
+            background: linear-gradient(45deg, #FF6347, #DC143C);
+            top: 62%;
+            left: 5%;
+            width: 25%;
+            height: 20%;
+        }
+        
+        .kuenstlerviertel {
+            background: linear-gradient(45deg, #DA70D6, #8A2BE2);
+            top: 45%;
+            left: 25%;
+            width: 15%;
+            height: 12%;
+        }
+        
+        .neubaugebiet {
+            background: linear-gradient(45deg, #00BFFF, #1E90FF);
+            top: 5%;
+            left: 70%;
+            width: 25%;
+            height: 20%;
+        }
+        
+        .oeko-siedlung {
+            background: linear-gradient(45deg, #9ACD32, #7CFC00);
+            top: 85%;
+            left: 70%;
+            width: 25%;
+            height: 12%;
+        }
+        
+        .bergdorf {
+            background: linear-gradient(45deg, #D2691E, #A0522D);
+            top: 5%;
+            left: 3%;
+            width: 22%;
+            height: 18%;
+        }
+        
+        .waldrand {
+            background: linear-gradient(45deg, #228B22, #006400);
+            top: 88%;
+            left: 10%;
+            width: 20%;
+            height: 10%;
+        }
+        
+        .vorort {
+            background: linear-gradient(45deg, #90EE90, #98FB98);
+            top: 58%;
+            left: 88%;
+            width: 10%;
+            height: 18%;
+        }
+        
+        /* Straßen */
+        .street {
+            position: absolute;
+            background: linear-gradient(90deg, #696969, #2F4F4F);
+            opacity: 0.8;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hauptstrasse {
+            top: 45%;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+        
+        .nordstrasse {
+            top: 0;
+            left: 50%;
+            width: 6px;
+            height: 100%;
+        }
+        
+        .weststrasse {
+            top: 0;
+            left: 20%;
+            width: 6px;
+            height: 100%;
+        }
+        
+        .oststrasse {
+            top: 0;
+            left: 80%;
+            width: 6px;
+            height: 100%;
+        }
+        
+        /* Einrichtungen mit Comic-Stil */
+        .facility {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+            border: 2px solid #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+        
+        .facility:hover {
+            transform: scale(1.4) rotate(5deg);
+            z-index: 20;
+            animation: bounce 0.5s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1.4) rotate(5deg) translateY(0); }
+            50% { transform: scale(1.4) rotate(5deg) translateY(-10px); }
+        }
+        
+        .ogs {
+            background: radial-gradient(circle, #1E90FF, #0066CC);
+        }
+        
+        .kita {
+            background: radial-gradient(circle, #32CD32, #228B22);
+        }
+        
+        .jugendzentrum {
+            background: radial-gradient(circle, #FF8C00, #FF6347);
+        }
+        
+        /* Labels ohne Überlagerung */
+        .label {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            white-space: nowrap;
+            pointer-events: none;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            z-index: 8;
+            border: 2px solid #333;
+            font-weight: bold;
+        }
+        
+        .label .sozialindex {
+            font-weight: bold;
+            color: #FF6B95;
+        }
+        
+        /* Bäume und Natur im Comic-Stil */
+        .tree {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #228B22, #006400);
+            border-radius: 50%;
+            opacity: 0.9;
+            border: 2px solid #8B4513;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+        }
+        
+        .tree::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 12px;
+            background: linear-gradient(180deg, #8B4513, #654321);
+            border-radius: 3px;
+        }
+        
+        /* Autos und Fahrräder */
+        .vehicle {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.8;
+            z-index: 2;
+        }
+        
+        .car {
+            animation: driveHorizontal 20s linear infinite;
+        }
+        
+        .bike {
+            animation: driveVertical 15s linear infinite;
+        }
+        
+        .car2 {
+            animation: driveHorizontalReverse 25s linear infinite;
+        }
+        
+        @keyframes driveHorizontal {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(1450px); }
+        }
+        
+        @keyframes driveHorizontalReverse {
+            0% { transform: translateX(1450px); }
+            100% { transform: translateX(-50px); }
+        }
+        
+        @keyframes driveVertical {
+            0% { transform: translateY(-50px); }
+            100% { transform: translateY(950px); }
+        }
+        
+        /* Sonne */
+        .sun {
+            position: absolute;
+            top: 8%;
+            right: 10%;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #FFD700, #FFA500);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            animation: shine 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes shine {
+            0% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+            100% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.9); }
+        }
+        
+        /* Info-Box */
+        .info-box {
+            position: absolute;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            border: 4px solid #FF6B95;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 100;
+            max-width: 350px;
+        }
+        
+        .info-box h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            background: linear-gradient(45deg, #FF6B95, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .info-box p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .qr-placeholder {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border: 2px solid #ccc;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .qr-placeholder:hover {
+            background: linear-gradient(45deg, #e0e0e0, #d0d0d0);
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Sonderobjekte */
+        .park {
+            position: absolute;
+            background: radial-gradient(circle, rgba(50, 205, 50, 0.4), rgba(34, 139, 34, 0.6));
+            border: 3px solid #228B22;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .schwimmbad {
+            position: absolute;
+            background: radial-gradient(circle, rgba(30, 144, 255, 0.5), rgba(0, 191, 255, 0.7));
+            border: 3px solid #1E90FF;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .industriegebiet {
+            position: absolute;
+            background: linear-gradient(45deg, rgba(105, 105, 105, 0.4), rgba(169, 169, 169, 0.3));
+            border: 3px dashed #696969;
+            border-radius: 10px;
+        }
+        
+        /* Fluss */
+        .river {
+            position: absolute;
+            background: linear-gradient(90deg, rgba(30, 144, 255, 0.6), rgba(0, 191, 255, 0.8), rgba(30, 144, 255, 0.6));
+            height: 20px;
+            top: 55%;
+            left: 0;
+            width: 100%;
+            transform: rotate(-2deg);
+            opacity: 0.8;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="map-container">
+        <h1>🌟 Stadt Sonnental - Praktikumsstellen der Sozialassistent*innen 🌟</h1>
+        
+        <div class="map">
+            <!-- Sonne -->
+            <div class="sun"></div>
+            
+            <!-- Fahrende Autos und Fahrräder -->
+            <div class="vehicle car" style="top: 44%; left: 0;">🚗</div>
+            <div class="vehicle car2" style="top: 46%; left: 0;">🚙</div>
+            <div class="vehicle bike" style="top: 0; left: 49%;">🚲</div>
+            <div class="vehicle bike" style="top: 0; left: 19%;">🚲</div>
+            <div class="vehicle car" style="top: 44%; left: 0; animation-delay: -10s;">🚕</div>
+            <div class="vehicle bike" style="top: 0; left: 79%; animation-delay: -8s;">🚲</div>
+            
+            <!-- Stadtteile -->
+            <div class="district zentrum"></div>
+            <div class="district nordviertel"></div>
+            <div class="district westbezirk"></div>
+            <div class="district suedstadt"></div>
+            <div class="district oststadt"></div>
+            <div class="district talviertel"></div>
+            <div class="district kuenstlerviertel"></div>
+            <div class="district neubaugebiet"></div>
+            <div class="district oeko-siedlung"></div>
+            <div class="district bergdorf"></div>
+            <div class="district waldrand"></div>
+            <div class="district vorort"></div>
+            
+            <!-- Fluss -->
+            <div class="river"></div>
+            
+            <!-- Straßen -->
+            <div class="street hauptstrasse"></div>
+            <div class="street nordstrasse"></div>
+            <div class="street weststrasse"></div>
+            <div class="street oststrasse"></div>
+            
+            <!-- Parks und Einrichtungen -->
+            <div class="park" style="top: 40%; left: 45%; width: 12%; height: 12%;"></div>
+            <div class="schwimmbad" style="top: 18%; left: 29%; width: 10%; height: 8%;"></div>
+            <div class="industriegebiet" style="top: 3%; left: 85%; width: 12%; height: 22%;"></div>
+            
+            <!-- Mehr Bäume für Comic-Stil -->
+            <div class="tree" style="top: 90%; left: 15%;"></div>
+            <div class="tree" style="top: 92%; left: 20%;"></div>
+            <div class="tree" style="top: 89%; left: 25%;"></div>
+            <div class="tree" style="top: 91%; left: 18%;"></div>
+            <div class="tree" style="top: 12%; left: 8%;"></div>
+            <div class="tree" style="top: 15%; left: 12%;"></div>
+            <div class="tree" style="top: 10%; left: 15%;"></div>
+            <div class="tree" style="top: 88%; left: 72%;"></div>
+            <div class="tree" style="top: 90%; left: 75%;"></div>
+            <div class="tree" style="top: 92%; left: 78%;"></div>
+            <!-- Zusätzliche Bäume -->
+            <div class="tree" style="top: 35%; left: 3%;"></div>
+            <div class="tree" style="top: 40%; left: 6%;"></div>
+            <div class="tree" style="top: 55%; left: 2%;"></div>
+            <div class="tree" style="top: 25%; left: 95%;"></div>
+            <div class="tree" style="top: 45%; left: 97%;"></div>
+            
+            <!-- Einrichtungen mit angepassten Positionen (keine Überlagerung) -->
+            <!-- OGS Nordschule -->
+            <div class="facility ogs" style="top: 25%; left: 35%;" data-name="OGS Nordschule" data-info="Sozialindex: 8 (hoch)
+280 Kinder, 87,5% Betreuungsquote
+Schwerpunkt: Sprachförderung">OGS</div>
+            <div class="label" style="top: 30%; left: 32%; cursor: pointer;">OGS Nordschule<br><span class="sozialindex">(SI: 8)</span></div>
+            
+            <!-- Kita Sonnenschein -->
+            <div class="facility kita" style="top: 40%; left: 55%;" data-name="Kita Sonnenschein" data-info="Sozialindex: 5 (mittel)
+85 Kinder, Familienzentrum
+Elterncafé">Kita</div>
+            <div class="label" style="top: 36%; left: 58%; cursor: pointer;">Kita Sonnenschein<br><span class="sozialindex">(SI: 5)</span></div>
+            
+            <!-- OGS Westschule -->
+            <div class="facility ogs" style="top: 50%; left: 8%;" data-name="OGS Westschule" data-info="Sozialindex: 7 (hoch)
+380 Kinder, 84% Betreuungsquote
+Interkultureller Schwerpunkt">OGS</div>
+            <div class="label" style="top: 55%; left: 5%; cursor: pointer;">OGS Westschule<br><span class="sozialindex">(SI: 7)</span></div>
+            
+            <!-- Jugendzentrum Nord -->
+            <div class="facility jugendzentrum" style="top: 20%; left: 60%;" data-name="Jugendzentrum Nord" data-info="Sozialindex: 9 (sehr hoch)
+80-120 Besucher täglich
+Niedrigschwellige Angebote">JFE</div>
+            <div class="label" style="top: 25%; left: 55%; cursor: pointer;">Jugendzentrum Nord<br><span class="sozialindex">(SI: 9)</span></div>
+            
+            <!-- Kita Regenbogen -->
+            <div class="facility kita" style="top: 75%; left: 40%;" data-name="Kita Regenbogen" data-info="Sozialindex: 2 (niedrig)
+95 Kinder, inklusive Einrichtung
+Bilinguale Angebote">Kita</div>
+            <div class="label" style="top: 80%; left: 37%; cursor: pointer;">Kita Regenbogen<br><span class="sozialindex">(SI: 2)</span></div>
+            
+            <!-- OGS Südschule -->
+            <div class="facility ogs" style="top: 75%; left: 60%;" data-name="OGS Südschule" data-info="Sozialindex: 4 (mittel)
+210 Kinder, 75% Betreuungsquote
+Flexible Betreuungszeiten">OGS</div>
+            <div class="label" style="top: 80%; left: 57%; cursor: pointer;">OGS Südschule<br><span class="sozialindex">(SI: 4)</span></div>
+            
+            <!-- Kita Sterntaler -->
+            <div class="facility kita" style="top: 35%; left: 85%;" data-name="Kita Sterntaler" data-info="Sozialindex: 7 (hoch)
+75 Kinder mit Fluchtgeschichte
+Traumapädagogik">Kita</div>
+            <div class="label" style="top: 32%; left: 70%; cursor: pointer;">Kita Sterntaler<br><span class="sozialindex">(SI: 7)</span></div>
+            
+            <!-- OGS Parkschule -->
+            <div class="facility ogs" style="top: 70%; left: 90%;" data-name="OGS Parkschule" data-info="Sozialindex: 3 (niedrig)
+140 Kinder, 70% Betreuungsquote
+Ländliche Lage">OGS</div>
+            <div class="label" style="top: 75%; left: 85%; cursor: pointer;">OGS Parkschule<br><span class="sozialindex">(SI: 3)</span></div>
+            
+            <!-- OGS Bergschule -->
+            <div class="facility ogs" style="top: 18%; left: 8%;" data-name="OGS Bergschule" data-info="Sozialindex: 5 (mittel)
+120 Kinder, 80% Betreuungsquote
+Naturpädagogik">OGS</div>
+            <div class="label" style="top: 23%; left: 5%; cursor: pointer;">OGS Bergschule<br><span class="sozialindex">(SI: 5)</span></div>
+            
+            <!-- Kita Waldwichtel -->
+            <div class="facility kita" style="top: 90%; left: 28%;" data-name="Kita Waldwichtel" data-info="Sozialindex: 2 (niedrig)
+45 Kinder, Waldkindergarten
+Naturpädagogik">Kita</div>
+            <div class="label" style="top: 95%; left: 25%; cursor: pointer;">Kita Waldwichtel<br><span class="sozialindex">(SI: 2)</span></div>
+            
+            <!-- OGS Talschule -->
+            <div class="facility ogs" style="top: 75%; left: 8%;" data-name="OGS Talschule" data-info="Sozialindex: 8 (hoch)
+340 Kinder, 89% Betreuungsquote
+Bilingual Deutsch-Türkisch">OGS</div>
+            <div class="label" style="top: 80%; left: 5%; cursor: pointer;">OGS Talschule<br><span class="sozialindex">(SI: 8)</span></div>
+            
+            <!-- Kita Pusteblume -->
+            <div class="facility kita" style="top: 18%; left: 85%;" data-name="Kita Pusteblume" data-info="Sozialindex: 2 (niedrig)
+110 Kinder, moderne Großkita
+Lange Öffnungszeiten">Kita</div>
+            <div class="label" style="top: 23%; left: 82%; cursor: pointer;">Kita Pusteblume<br><span class="sozialindex">(SI: 2)</span></div>
+            
+            <!-- OGS Bachschule -->
+            <div class="facility ogs" style="top: 52%; left: 28%;" data-name="OGS Bachschule" data-info="Sozialindex: 4 (mittel)
+190 Kinder, 76% Betreuungsquote
+Kreativpädagogik">OGS</div>
+            <div class="label" style="top: 57%; left: 25%; cursor: pointer;">OGS Bachschule<br><span class="sozialindex">(SI: 4)</span></div>
+            
+            <!-- Kita Blumenwiese -->
+            <div class="facility kita" style="top: 90%; left: 85%;" data-name="Kita Blumenwiese" data-info="Sozialindex: 1 (sehr niedrig)
+60 Kinder, Montessori
+Bio-Vollwertkost">Kita</div>
+            <div class="label" style="top: 95%; left: 82%; cursor: pointer;">Kita Blumenwiese<br><span class="sozialindex">(SI: 1)</span></div>
+            
+            <!-- Stadtteil-Labels mit schwarzer, fetter Schrift -->
+            <div style="position: absolute; top: 15%; left: 45%; font-weight: bold; font-size: 16px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">NORDVIERTEL</div>
+            <div style="position: absolute; top: 42%; left: 15%; font-weight: bold; font-size: 16px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">WESTBEZIRK</div>
+            <div style="position: absolute; top: 70%; left: 48%; font-weight: bold; font-size: 16px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">SÜDSTADT</div>
+            <div style="position: absolute; top: 38%; left: 75%; font-weight: bold; font-size: 16px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">OSTSTADT</div>
+            <div style="position: absolute; top: 68%; left: 15%; font-weight: bold; font-size: 16px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">TALVIERTEL</div>
+            <div style="position: absolute; top: 42%; left: 43%; font-weight: bold; font-size: 16px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">ZENTRUM</div>
+            <div style="position: absolute; top: 10%; left: 10%; font-weight: bold; font-size: 14px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">BERGDORF</div>
+            <div style="position: absolute; top: 48%; left: 27%; font-weight: bold; font-size: 14px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">KÜNSTLER-<br>VIERTEL</div>
+            <div style="position: absolute; top: 10%; left: 75%; font-weight: bold; font-size: 14px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">NEUBAU-<br>GEBIET</div>
+            <div style="position: absolute; top: 88%; left: 75%; font-weight: bold; font-size: 14px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">ÖKO-<br>SIEDLUNG</div>
+            <div style="position: absolute; top: 90%; left: 15%; font-weight: bold; font-size: 14px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">WALDRAND</div>
+            <div style="position: absolute; top: 62%; left: 90%; font-weight: bold; font-size: 14px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">VORORT</div>
+            
+            <!-- Straßennamen - näher an den Straßen positioniert -->
+            <div style="position: absolute; top: 43%; left: 58%; font-size: 12px; background: rgba(255,255,255,0.9); padding: 3px 6px; border-radius: 5px; border: 2px solid #333; font-weight: bold;">Hauptstraße</div>
+            <div style="position: absolute; top: 48%; left: 47%; font-size: 12px; background: rgba(255,255,255,0.9); padding: 3px 6px; border-radius: 5px; border: 2px solid #333; font-weight: bold; transform: rotate(-90deg);">Nordstraße</div>
+            <div style="position: absolute; top: 48%; left: 17%; font-size: 12px; background: rgba(255,255,255,0.9); padding: 3px 6px; border-radius: 5px; border: 2px solid #333; font-weight: bold; transform: rotate(-90deg);">Weststraße</div>
+            <div style="position: absolute; top: 48%; left: 77%; font-size: 12px; background: rgba(255,255,255,0.9); padding: 3px 6px; border-radius: 5px; border: 2px solid #333; font-weight: bold; transform: rotate(-90deg);">Oststraße</div>
+            
+            <!-- Park und Schwimmbad Labels -->
+            <div style="position: absolute; top: 44%; left: 49%; font-size: 13px; font-style: italic; font-weight: bold; color: #2e7d32; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">🌳 Stadtpark 🌳</div>
+            <div style="position: absolute; top: 18%; left: 32%; font-size: 13px; font-style: italic; font-weight: bold; color: #1976d2; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">🏊 Freibad 🏊</div>
+            <div style="position: absolute; top: 12%; left: 88%; font-size: 12px; font-style: italic; font-weight: bold; color: #555; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">🏭 INDUSTRIE</div>
+            <div style="position: absolute; top: 56%; left: 55%; font-size: 14px; font-style: italic; font-weight: bold; color: #1976d2; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">🌊 Meise (Fluss) 🌊</div>
+        </div>
+        
+        <!-- Legende UNTER der Karte -->
+        <div style="background: linear-gradient(45deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95)); padding: 20px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-top: 20px; border: 4px solid #FF6B95;">
+            <h4 style="margin: 0 0 15px 0; font-size: 18px; text-align: center; color: #2c3e50; background: linear-gradient(45deg, #FF6B95, #4ECDC4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🎯 Legende</h4>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                <div style="display: flex; align-items: center;">
+                    <div style="width: 22px; height: 22px; border-radius: 50%; margin-right: 10px; background: radial-gradient(circle, #1E90FF, #0066CC); border: 2px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>
+                    <span style="font-weight: bold;">OGS</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <div style="width: 22px; height: 22px; border-radius: 50%; margin-right: 10px; background: radial-gradient(circle, #32CD32, #228B22); border: 2px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>
+                    <span style="font-weight: bold;">Kita</span>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <div style="width: 22px; height: 22px; border-radius: 50%; margin-right: 10px; background: radial-gradient(circle, #FF8C00, #FF6347); border: 2px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>
+                    <span style="font-weight: bold;">JFE (Jugendzentrum)</span>
+                </div>
+            </div>
+            <div style="margin-top: 15px; padding: 10px; background: rgba(255, 107, 149, 0.1); border-radius: 10px; border: 2px solid #FF6B95;">
+                <strong style="color: #2c3e50;">🏆 Sozialindex (SI):</strong><br>
+                <span style="color: #228B22; font-weight: bold;">1-3: niedrig</span> | 
+                <span style="color: #FF8C00; font-weight: bold;">4-6: mittel</span> | 
+                <span style="color: #DC143C; font-weight: bold;">7-9: hoch</span>
+            </div>
+        </div>
+        
+        <!-- Info-Box (versteckt) -->
+        <div class="info-box" id="infoBox">
+            <h3 id="infoTitle"></h3>
+            <p id="infoContent"></p>
+            <div class="qr-placeholder">📱 QR-Code für Details</div>
+        </div>
+    </div>
+    
+    <script>
+        // Interaktivität für die Einrichtungen
+        const facilities = document.querySelectorAll('.facility');
+        const labels = document.querySelectorAll('.label');
+        const infoBox = document.getElementById('infoBox');
+        const infoTitle = document.getElementById('infoTitle');
+        const infoContent = document.getElementById('infoContent');
+        
+        // Funktion zum Anzeigen der Info-Box
+        function showInfoBox(element, name, info) {
+            infoTitle.textContent = name;
+            infoContent.innerHTML = info.replace(/&#10;/g, '<br>');
+            
+            // Position der Info-Box
+            infoBox.style.display = 'block';
+            const rect = element.getBoundingClientRect();
+            const mapRect = document.querySelector('.map').getBoundingClientRect();
+            
+            // Berechne Position relativ zur Karte
+            let left = rect.left - mapRect.left + 50;
+            let top = rect.top - mapRect.top;
+            
+            // Verhindere, dass die Box außerhalb der Karte erscheint
+            if (left + 350 > mapRect.width) {
+                left = rect.left - mapRect.left - 370;
+            }
+            if (top + 200 > mapRect.height) {
+                top = rect.top - mapRect.top - 220;
+            }
+            
+            infoBox.style.left = left + 'px';
+            infoBox.style.top = top + 'px';
+        }
+        
+        // Event-Listener für Einrichtungen (Kreise)
+        facilities.forEach(facility => {
+            facility.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const name = this.getAttribute('data-name');
+                const info = this.getAttribute('data-info');
+                showInfoBox(this, name, info);
+            });
+        });
+        
+        // Event-Listener für Labels (weiße Kästchen)
+        labels.forEach(label => {
+            // Finde die entsprechende Einrichtung
+            const facilityName = label.textContent.split('\n')[0].split('(')[0].trim();
+            const correspondingFacility = Array.from(facilities).find(facility => 
+                facility.getAttribute('data-name').includes(facilityName.split(' ').slice(-1)[0])
+            );
+            
+            if (correspondingFacility) {
+                label.style.cursor = 'pointer';
+                label.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const name = correspondingFacility.getAttribute('data-name');
+                    const info = correspondingFacility.getAttribute('data-info');
+                    showInfoBox(this, name, info);
+                });
+            }
+        });
+        
+        // QR-Code Klick-Funktionalität
+        function setupQRCodeClick() {
+            const qrCode = document.querySelector('.qr-placeholder');
+            if (qrCode) {
+                qrCode.addEventListener('click', function() {
+                    const facilityName = infoTitle.textContent;
+                    // Hier könnten Sie zu einer echten QR-Code-Seite weiterleiten
+                    alert(`QR-Code für ${facilityName} - Hier würde normalerweise eine Weiterleitung zu detaillierten Informationen erfolgen.`);
+                    
+                    // Beispiel für echte Weiterleitung (auskommentiert):
+                    // window.open(`https://example.com/einrichtungen/${facilityName.toLowerCase().replace(/\s+/g, '-')}`, '_blank');
+                });
+            }
+        }
+        
+        // Setup QR-Code nach dem Anzeigen der Info-Box
+        const originalShowInfoBox = showInfoBox;
+        showInfoBox = function(element, name, info) {
+            originalShowInfoBox(element, name, info);
+            // Kurz warten, bis die Info-Box gerendert ist
+            setTimeout(setupQRCodeClick, 100);
+        };
+        
+        // Klick außerhalb schließt Info-Box
+        document.addEventListener('click', function(e) {
+            if (!infoBox.contains(e.target)) {
+                infoBox.style.display = 'none';
+            }
+        });
+        
+        // Hover-Effekt für bessere Interaktivität
+        facilities.forEach(facility => {
+            facility.addEventListener('mouseenter', function() {
+                this.style.cursor = 'pointer';
+            });
+        });
+        
+        // Hover-Effekt für Labels
+        labels.forEach(label => {
+            label.addEventListener('mouseenter', function() {
+                if (this.style.cursor === 'pointer') {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.3)';
+                }
+            });
+            
+            label.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 3px 6px rgba(0, 0, 0, 0.3)';
+            });
+        });
+    </script>
+
+</body></html>
