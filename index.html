@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0051)file:///L:/Downloads/sonnental_map_comic%20(5).html -->
-<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Praktikumsstellen der Sozialassistent*innen - Stadt Sonnental</title>
     <style>
@@ -345,7 +345,7 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             display: none;
             z-index: 100;
-            max-width: 350px;
+            max-width: 400px;
         }
         
         .info-box h3 {
@@ -363,8 +363,8 @@
         }
         
         .qr-placeholder {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
             border: 2px solid #ccc;
             margin: 10px auto;
@@ -376,12 +376,22 @@
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
+            overflow: hidden;
         }
         
         .qr-placeholder:hover {
             background: linear-gradient(45deg, #e0e0e0, #d0d0d0);
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .qr-code-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Sonderobjekte */
@@ -487,88 +497,60 @@
             
             <!-- Einrichtungen mit angepassten Positionen (keine Überlagerung) -->
             <!-- OGS Nordschule -->
-            <div class="facility ogs" style="top: 25%; left: 35%;" data-name="OGS Nordschule" data-info="Sozialindex: 8 (hoch)
-280 Kinder, 87,5% Betreuungsquote
-Schwerpunkt: Sprachförderung">OGS</div>
-            <div class="label" style="top: 30%; left: 32%; cursor: pointer;">OGS Nordschule<br><span class="sozialindex">(SI: 8)</span></div>
+            <div class="facility ogs" style="top: 25%; left: 35%;" data-name="OGS Nordschule" data-info="Sozialindex: 8 (hoch)&#10;280 Kinder, 87,5% Betreuungsquote&#10;Schwerpunkt: Sprachförderung">OGS</div>
+            <div class="label" style="top: 30%; left: 32%;">OGS Nordschule<br><span class="sozialindex">(SI: 8)</span></div>
             
             <!-- Kita Sonnenschein -->
-            <div class="facility kita" style="top: 40%; left: 55%;" data-name="Kita Sonnenschein" data-info="Sozialindex: 5 (mittel)
-85 Kinder, Familienzentrum
-Elterncafé">Kita</div>
-            <div class="label" style="top: 36%; left: 58%; cursor: pointer;">Kita Sonnenschein<br><span class="sozialindex">(SI: 5)</span></div>
+            <div class="facility kita" style="top: 40%; left: 55%;" data-name="Kita Sonnenschein" data-info="Sozialindex: 5 (mittel)&#10;85 Kinder, Familienzentrum&#10;Elterncafé">Kita</div>
+            <div class="label" style="top: 36%; left: 58%;">Kita Sonnenschein<br><span class="sozialindex">(SI: 5)</span></div>
             
             <!-- OGS Westschule -->
-            <div class="facility ogs" style="top: 50%; left: 8%;" data-name="OGS Westschule" data-info="Sozialindex: 7 (hoch)
-380 Kinder, 84% Betreuungsquote
-Interkultureller Schwerpunkt">OGS</div>
-            <div class="label" style="top: 55%; left: 5%; cursor: pointer;">OGS Westschule<br><span class="sozialindex">(SI: 7)</span></div>
+            <div class="facility ogs" style="top: 50%; left: 8%;" data-name="OGS Westschule" data-info="Sozialindex: 7 (hoch)&#10;380 Kinder, 84% Betreuungsquote&#10;Interkultureller Schwerpunkt">OGS</div>
+            <div class="label" style="top: 55%; left: 5%;">OGS Westschule<br><span class="sozialindex">(SI: 7)</span></div>
             
             <!-- Jugendzentrum Nord -->
-            <div class="facility jugendzentrum" style="top: 20%; left: 60%;" data-name="Jugendzentrum Nord" data-info="Sozialindex: 9 (sehr hoch)
-80-120 Besucher täglich
-Niedrigschwellige Angebote">JFE</div>
-            <div class="label" style="top: 25%; left: 55%; cursor: pointer;">Jugendzentrum Nord<br><span class="sozialindex">(SI: 9)</span></div>
+            <div class="facility jugendzentrum" style="top: 20%; left: 60%;" data-name="Jugendzentrum Nord" data-info="Sozialindex: 9 (sehr hoch)&#10;80-120 Besucher täglich&#10;Niedrigschwellige Angebote">JFE</div>
+            <div class="label" style="top: 25%; left: 55%;">Jugendzentrum Nord<br><span class="sozialindex">(SI: 9)</span></div>
             
             <!-- Kita Regenbogen -->
-            <div class="facility kita" style="top: 75%; left: 40%;" data-name="Kita Regenbogen" data-info="Sozialindex: 2 (niedrig)
-95 Kinder, inklusive Einrichtung
-Bilinguale Angebote">Kita</div>
-            <div class="label" style="top: 80%; left: 37%; cursor: pointer;">Kita Regenbogen<br><span class="sozialindex">(SI: 2)</span></div>
+            <div class="facility kita" style="top: 75%; left: 40%;" data-name="Kita Regenbogen" data-info="Sozialindex: 2 (niedrig)&#10;95 Kinder, inklusive Einrichtung&#10;Bilinguale Angebote">Kita</div>
+            <div class="label" style="top: 80%; left: 37%;">Kita Regenbogen<br><span class="sozialindex">(SI: 2)</span></div>
             
             <!-- OGS Südschule -->
-            <div class="facility ogs" style="top: 75%; left: 60%;" data-name="OGS Südschule" data-info="Sozialindex: 4 (mittel)
-210 Kinder, 75% Betreuungsquote
-Flexible Betreuungszeiten">OGS</div>
-            <div class="label" style="top: 80%; left: 57%; cursor: pointer;">OGS Südschule<br><span class="sozialindex">(SI: 4)</span></div>
+            <div class="facility ogs" style="top: 75%; left: 60%;" data-name="OGS Südschule" data-info="Sozialindex: 4 (mittel)&#10;210 Kinder, 75% Betreuungsquote&#10;Flexible Betreuungszeiten">OGS</div>
+            <div class="label" style="top: 80%; left: 57%;">OGS Südschule<br><span class="sozialindex">(SI: 4)</span></div>
             
             <!-- Kita Sterntaler -->
-            <div class="facility kita" style="top: 35%; left: 85%;" data-name="Kita Sterntaler" data-info="Sozialindex: 7 (hoch)
-75 Kinder mit Fluchtgeschichte
-Traumapädagogik">Kita</div>
-            <div class="label" style="top: 32%; left: 70%; cursor: pointer;">Kita Sterntaler<br><span class="sozialindex">(SI: 7)</span></div>
+            <div class="facility kita" style="top: 35%; left: 85%;" data-name="Kita Sterntaler" data-info="Sozialindex: 7 (hoch)&#10;75 Kinder mit Fluchtgeschichte&#10;Traumapädagogik">Kita</div>
+            <div class="label" style="top: 32%; left: 70%;">Kita Sterntaler<br><span class="sozialindex">(SI: 7)</span></div>
             
             <!-- OGS Parkschule -->
-            <div class="facility ogs" style="top: 70%; left: 90%;" data-name="OGS Parkschule" data-info="Sozialindex: 3 (niedrig)
-140 Kinder, 70% Betreuungsquote
-Ländliche Lage">OGS</div>
-            <div class="label" style="top: 75%; left: 85%; cursor: pointer;">OGS Parkschule<br><span class="sozialindex">(SI: 3)</span></div>
+            <div class="facility ogs" style="top: 70%; left: 90%;" data-name="OGS Parkschule" data-info="Sozialindex: 3 (niedrig)&#10;140 Kinder, 70% Betreuungsquote&#10;Ländliche Lage">OGS</div>
+            <div class="label" style="top: 75%; left: 85%;">OGS Parkschule<br><span class="sozialindex">(SI: 3)</span></div>
             
             <!-- OGS Bergschule -->
-            <div class="facility ogs" style="top: 18%; left: 8%;" data-name="OGS Bergschule" data-info="Sozialindex: 5 (mittel)
-120 Kinder, 80% Betreuungsquote
-Naturpädagogik">OGS</div>
-            <div class="label" style="top: 23%; left: 5%; cursor: pointer;">OGS Bergschule<br><span class="sozialindex">(SI: 5)</span></div>
+            <div class="facility ogs" style="top: 18%; left: 8%;" data-name="OGS Bergschule" data-info="Sozialindex: 5 (mittel)&#10;120 Kinder, 80% Betreuungsquote&#10;Naturpädagogik">OGS</div>
+            <div class="label" style="top: 23%; left: 5%;">OGS Bergschule<br><span class="sozialindex">(SI: 5)</span></div>
             
             <!-- Kita Waldwichtel -->
-            <div class="facility kita" style="top: 90%; left: 28%;" data-name="Kita Waldwichtel" data-info="Sozialindex: 2 (niedrig)
-45 Kinder, Waldkindergarten
-Naturpädagogik">Kita</div>
-            <div class="label" style="top: 95%; left: 25%; cursor: pointer;">Kita Waldwichtel<br><span class="sozialindex">(SI: 2)</span></div>
+            <div class="facility kita" style="top: 90%; left: 28%;" data-name="Kita Waldwichtel" data-info="Sozialindex: 2 (niedrig)&#10;45 Kinder, Waldkindergarten&#10;Naturpädagogik">Kita</div>
+            <div class="label" style="top: 95%; left: 25%;">Kita Waldwichtel<br><span class="sozialindex">(SI: 2)</span></div>
             
             <!-- OGS Talschule -->
-            <div class="facility ogs" style="top: 75%; left: 8%;" data-name="OGS Talschule" data-info="Sozialindex: 8 (hoch)
-340 Kinder, 89% Betreuungsquote
-Bilingual Deutsch-Türkisch">OGS</div>
-            <div class="label" style="top: 80%; left: 5%; cursor: pointer;">OGS Talschule<br><span class="sozialindex">(SI: 8)</span></div>
+            <div class="facility ogs" style="top: 75%; left: 8%;" data-name="OGS Talschule" data-info="Sozialindex: 8 (hoch)&#10;340 Kinder, 89% Betreuungsquote&#10;Bilingual Deutsch-Türkisch">OGS</div>
+            <div class="label" style="top: 80%; left: 5%;">OGS Talschule<br><span class="sozialindex">(SI: 8)</span></div>
             
             <!-- Kita Pusteblume -->
-            <div class="facility kita" style="top: 18%; left: 85%;" data-name="Kita Pusteblume" data-info="Sozialindex: 2 (niedrig)
-110 Kinder, moderne Großkita
-Lange Öffnungszeiten">Kita</div>
-            <div class="label" style="top: 23%; left: 82%; cursor: pointer;">Kita Pusteblume<br><span class="sozialindex">(SI: 2)</span></div>
+            <div class="facility kita" style="top: 18%; left: 85%;" data-name="Kita Pusteblume" data-info="Sozialindex: 2 (niedrig)&#10;110 Kinder, moderne Großkita&#10;Lange Öffnungszeiten">Kita</div>
+            <div class="label" style="top: 23%; left: 82%;">Kita Pusteblume<br><span class="sozialindex">(SI: 2)</span></div>
             
             <!-- OGS Bachschule -->
-            <div class="facility ogs" style="top: 52%; left: 28%;" data-name="OGS Bachschule" data-info="Sozialindex: 4 (mittel)
-190 Kinder, 76% Betreuungsquote
-Kreativpädagogik">OGS</div>
-            <div class="label" style="top: 57%; left: 25%; cursor: pointer;">OGS Bachschule<br><span class="sozialindex">(SI: 4)</span></div>
+            <div class="facility ogs" style="top: 52%; left: 28%;" data-name="OGS Bachschule" data-info="Sozialindex: 4 (mittel)&#10;190 Kinder, 76% Betreuungsquote&#10;Kreativpädagogik">OGS</div>
+            <div class="label" style="top: 57%; left: 25%;">OGS Bachschule<br><span class="sozialindex">(SI: 4)</span></div>
             
             <!-- Kita Blumenwiese -->
-            <div class="facility kita" style="top: 90%; left: 85%;" data-name="Kita Blumenwiese" data-info="Sozialindex: 1 (sehr niedrig)
-60 Kinder, Montessori
-Bio-Vollwertkost">Kita</div>
-            <div class="label" style="top: 95%; left: 82%; cursor: pointer;">Kita Blumenwiese<br><span class="sozialindex">(SI: 1)</span></div>
+            <div class="facility kita" style="top: 90%; left: 85%;" data-name="Kita Blumenwiese" data-info="Sozialindex: 1 (sehr niedrig)&#10;60 Kinder, Montessori&#10;Bio-Vollwertkost">Kita</div>
+            <div class="label" style="top: 95%; left: 82%;">Kita Blumenwiese<br><span class="sozialindex">(SI: 1)</span></div>
             
             <!-- Stadtteil-Labels mit schwarzer, fetter Schrift -->
             <div style="position: absolute; top: 15%; left: 45%; font-weight: bold; font-size: 16px; color: #000; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); z-index: 3; background: rgba(255,255,255,0.7); padding: 2px 6px; border-radius: 4px;">NORDVIERTEL</div>
@@ -625,23 +607,257 @@ Bio-Vollwertkost">Kita</div>
         <!-- Info-Box (versteckt) -->
         <div class="info-box" id="infoBox">
             <h3 id="infoTitle"></h3>
-            <p id="infoContent"></p>
-            <div class="qr-placeholder">📱 QR-Code für Details</div>
+            <div id="infoContent" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0;">
+                <!-- Eckdaten werden hier eingefügt -->
+            </div>
+            <div class="qr-placeholder" id="qrContainer">
+                <div class="qr-code-container">
+                    <div id="qrCode"></div>
+                    <small style="margin-top: 5px; text-align: center;">📱 QR-Code für PDF-Details</small>
+                </div>
+            </div>
         </div>
     </div>
     
     <script>
+        // Detaillierte Einrichtungsdaten
+        const facilityDetails = {
+            "OGS Nordschule": {
+                subtitle: "Offene Ganztagsschule im Nordviertel",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/abc3c9c0-5434-4d8f-ad64-2f11be6e4240?token=45089c132f7e7242747129b45d4c3943",
+                eckdaten: {
+                    sozialindex: "8 (hoch)",
+                    kinder: "280",
+                    betreuungsquote: "87,5%",
+                    personal: "12 Fachkräfte + 4 Honorarkräfte",
+                    praktikum: "2-3 Plätze pro Semester",
+                    schwerpunkt: "Sprachförderung, Mehrsprachige Betreuung"
+                }
+            },
+            "Kita Sonnenschein": {
+                subtitle: "Familienzentrum im Zentrum der Stadt",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/ca8046f2-8d15-4daa-bdc2-b9de23323d62?token=b12f46ab2dbc10a67e4cbb5e96ad1320",
+                eckdaten: {
+                    sozialindex: "5 (mittel)",
+                    kinder: "85 (4 Monate - 6 Jahre)",
+                    gruppen: "4 Gruppen",
+                    personal: "8 Vollzeitkräfte + 3 Ergänzungskräfte",
+                    praktikum: "2 Plätze pro Jahr",
+                    schwerpunkt: "Familienzentrum, Inklusion, Bewegung"
+                }
+            },
+            "Jugendzentrum Nord": {
+                subtitle: "Niedrigschwellige Jugendarbeit im Nordviertel",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/ab7a7e2c-9bbf-4955-9acd-ff70b606f25c?token=f2d02b4cab492f86c200c89ed5ae8f89",
+                eckdaten: {
+                    sozialindex: "9 (sehr hoch)",
+                    besucher: "80-120 täglich (12-21 Jahre)",
+                    personal: "6 Fachkräfte",
+                    praktikum: "1-2 Plätze pro Semester (mind. 8 Wochen)",
+                    angebote: "Offener Treff, Hausaufgabenhilfe, Sport",
+                    schwerpunkt: "Niedrigschwellige Angebote, Berufsorientierung"
+                }
+            },
+            "OGS Westschule": {
+                subtitle: "Interkulturelle Ganztagsbetreuung im Westbezirk",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/2f68a65f-b636-4db9-bacc-c96f38f76620?token=637679fc1776afcf95cb094a9eb23797",
+                eckdaten: {
+                    sozialindex: "7 (hoch)",
+                    kinder: "380",
+                    betreuungsquote: "84%",
+                    personal: "15 Fachkräfte + 6 Honorarkräfte",
+                    praktikum: "3-4 Plätze pro Semester",
+                    schwerpunkt: "Interkultureller Schwerpunkt, Mehrsprachigkeit"
+                }
+            },
+            "Kita Regenbogen": {
+                subtitle: "Inklusive Kindertagesstätte in der Südstadt",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/784c9de9-197d-45fa-a9d0-9c4a65d579b2?token=b3225132a23964ffd4d3667b316b9e96",
+                eckdaten: {
+                    sozialindex: "2 (niedrig)",
+                    kinder: "95 (1-6 Jahre)",
+                    gruppen: "4 Gruppen (davon 1 integrative)",
+                    personal: "9 Erzieher*innen + 2 Heilpädagogen",
+                    praktikum: "2 Plätze pro Jahr",
+                    schwerpunkt: "Inklusive Einrichtung, Bilinguale Angebote"
+                }
+            },
+            "OGS Südschule": {
+                subtitle: "Flexible Ganztagsbetreuung in der Südstadt",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/c06bcc5b-9df8-4150-9b17-4e1040d6e5ec?token=c3e91341835407ebb4615e25bfe5ee28",
+                eckdaten: {
+                    sozialindex: "4 (mittel)",
+                    kinder: "210",
+                    betreuungsquote: "75%",
+                    personal: "10 Fachkräfte + 3 Ergänzungskräfte",
+                    praktikum: "2 Plätze pro Semester",
+                    schwerpunkt: "Flexible Betreuungszeiten, Projektarbeit"
+                }
+            },
+            "Kita Sterntaler": {
+                subtitle: "Traumapädagogische Betreuung in der Oststadt",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/e73750a1-0ce1-416b-8514-6391c93701c0?token=2f64cfe7ac43d489a46c1ee1b828eb91",
+                eckdaten: {
+                    sozialindex: "7 (hoch)",
+                    kinder: "75 (viele mit Fluchtgeschichte)",
+                    gruppen: "3 Gruppen",
+                    personal: "7 Fachkräfte + 2 Traumapädagogen",
+                    praktikum: "1-2 Plätze pro Jahr",
+                    schwerpunkt: "Traumapädagogik, Mehrsprachigkeit"
+                }
+            },
+            "OGS Parkschule": {
+                subtitle: "Ländliche Ganztagsschule im Vorort",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/41f6e9c9-c0e3-41b9-893e-7a0c3f685ac1?token=a60a256036d69492943027ae3e6e7278",
+                eckdaten: {
+                    sozialindex: "3 (niedrig)",
+                    kinder: "140",
+                    betreuungsquote: "70%",
+                    personal: "8 Fachkräfte + 2 Honorarkräfte",
+                    praktikum: "1-2 Plätze pro Semester",
+                    schwerpunkt: "Ländliche Lage, Naturpädagogik"
+                }
+            },
+            "OGS Bergschule": {
+                subtitle: "Naturnahe Ganztagsschule im Bergdorf",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/4a084ed5-e71a-48a4-91bf-dee92e6015cd?token=35535f93d30b0ea99effe9b488b9ceed",
+                eckdaten: {
+                    sozialindex: "5 (mittel)",
+                    kinder: "120",
+                    betreuungsquote: "80%",
+                    personal: "7 Fachkräfte + 2 Naturpädagogen",
+                    praktikum: "1-2 Plätze pro Semester",
+                    schwerpunkt: "Naturpädagogik, Umweltbildung"
+                }
+            },
+            "Kita Waldwichtel": {
+                subtitle: "Waldkindergarten am Waldrand",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/fcbead05-ab88-4f21-b8b3-9a7ee55e50ab?token=d8040d531f080bf3f68a0aa8fb610968",
+                eckdaten: {
+                    sozialindex: "2 (niedrig)",
+                    kinder: "45 (3-6 Jahre)",
+                    gruppen: "2 Waldgruppen",
+                    personal: "4 Erzieher*innen + 1 Waldpädagoge",
+                    praktikum: "1 Platz pro Jahr",
+                    schwerpunkt: "Waldkindergarten, Naturpädagogik"
+                }
+            },
+            "OGS Talschule": {
+                subtitle: "Bilinguale Ganztagsschule im Talviertel",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/cdcdb602-2c1f-4acc-866a-85db16e83ead?token=f3ef24f7a857f4a9c09a1cff6635946f",
+                eckdaten: {
+                    sozialindex: "8 (hoch)",
+                    kinder: "340",
+                    betreuungsquote: "89%",
+                    personal: "16 Fachkräfte + 8 Honorarkräfte",
+                    praktikum: "3-4 Plätze pro Semester",
+                    schwerpunkt: "Bilingual Deutsch-Türkisch"
+                }
+            },
+            "Kita Pusteblume": {
+                subtitle: "Moderne Großkita im Neubaugebiet",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/44cff1ca-c560-4f7f-a996-b8b4b6cd74cb?token=0542a45b8c0542efdfa1bf4014c9dfdd",
+                eckdaten: {
+                    sozialindex: "2 (niedrig)",
+                    kinder: "110 (6 Monate - 6 Jahre)",
+                    gruppen: "5 Gruppen",
+                    personal: "12 Erzieher*innen + 3 Ergänzungskräfte",
+                    praktikum: "2-3 Plätze pro Jahr",
+                    schwerpunkt: "Moderne Großkita, Lange Öffnungszeiten"
+                }
+            },
+            "OGS Bachschule": {
+                subtitle: "Kreative Ganztagsschule im Künstlerviertel",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/72747c0b-19de-41a5-bea2-d5f60c83d6ff?token=9f19c1321d25580286bc3da77dfc44ed",
+                eckdaten: {
+                    sozialindex: "4 (mittel)",
+                    kinder: "190",
+                    betreuungsquote: "76%",
+                    personal: "9 Fachkräfte + 4 Kunstpädagogen",
+                    praktikum: "2 Plätze pro Semester",
+                    schwerpunkt: "Kreativpädagogik, Kunst und Kultur"
+                }
+            },
+            "Kita Blumenwiese": {
+                subtitle: "Montessori-Kindergarten in der Öko-Siedlung",
+                pdfUrl: "https://app.fobizz.com/file_sharing/public_files/1f7734da-0e94-47ba-b0cc-33a6c8b27c94?token=b0e875e19cf5f4cb71e56fcbd71e04ac",
+                eckdaten: {
+                    sozialindex: "1 (sehr niedrig)",
+                    kinder: "60 (2-6 Jahre)",
+                    gruppen: "3 Montessori-Gruppen",
+                    personal: "6 Montessori-Pädagogen",
+                    praktikum: "1 Platz pro Jahr",
+                    schwerpunkt: "Montessori-Pädagogik, Bio-Vollwertkost"
+                }
+            }
+        };
+        
         // Interaktivität für die Einrichtungen
         const facilities = document.querySelectorAll('.facility');
         const labels = document.querySelectorAll('.label');
         const infoBox = document.getElementById('infoBox');
         const infoTitle = document.getElementById('infoTitle');
         const infoContent = document.getElementById('infoContent');
+        const qrContainer = document.getElementById('qrContainer');
+        const qrCode = document.getElementById('qrCode');
         
-        // Funktion zum Anzeigen der Info-Box
-        function showInfoBox(element, name, info) {
+        // QR-Code generieren für PDF-Link
+        function generateQRCode(facilityName) {
+            const details = facilityDetails[facilityName];
+            if (!details) return;
+            
+            // PDF-URL verwenden oder Fallback
+            const pdfUrl = details.pdfUrl || `#pdf-${facilityName.toLowerCase().replace(/\s+/g, '-')}`;
+            
+            // QR-Code über API generieren
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(pdfUrl)}`;
+            
+            // QR-Code-Bild erstellen
+            const qrImg = document.createElement('img');
+            qrImg.src = qrApiUrl;
+            qrImg.alt = 'QR-Code für ' + facilityName + ' PDF';
+            qrImg.style.width = '90px';
+            qrImg.style.height = '90px';
+            qrImg.style.border = '2px solid #333';
+            qrImg.style.borderRadius = '5px';
+            
+            // Alten QR-Code entfernen und neuen einfügen
+            qrCode.innerHTML = '';
+            qrCode.appendChild(qrImg);
+            
+            return pdfUrl;
+        }
+        
+        // Funktion zum Anzeigen der Info-Box mit Eckdaten
+        function showInfoBox(element, name) {
+            const details = facilityDetails[name];
+            if (!details) {
+                console.log('Keine Details für:', name);
+                return;
+            }
+            
+            // Titel setzen
             infoTitle.textContent = name;
-            infoContent.innerHTML = info.replace(/&#10;/g, '<br>');
+            
+            // Eckdaten anzeigen
+            infoContent.innerHTML = '';
+            const eckdaten = details.eckdaten;
+            
+            for (const [key, value] of Object.entries(eckdaten)) {
+                const dataDiv = document.createElement('div');
+                dataDiv.style.background = '#f8f9fa';
+                dataDiv.style.padding = '10px';
+                dataDiv.style.borderRadius = '8px';
+                dataDiv.style.borderLeft = '3px solid #4ECDC4';
+                dataDiv.innerHTML = `
+                    <strong>${key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}:</strong><br>
+                    ${value}
+                `;
+                infoContent.appendChild(dataDiv);
+            }
+            
+            // QR-Code generieren
+            const pdfUrl = generateQRCode(name);
             
             // Position der Info-Box
             infoBox.style.display = 'block';
@@ -653,15 +869,22 @@ Bio-Vollwertkost">Kita</div>
             let top = rect.top - mapRect.top;
             
             // Verhindere, dass die Box außerhalb der Karte erscheint
-            if (left + 350 > mapRect.width) {
-                left = rect.left - mapRect.left - 370;
+            if (left + 400 > mapRect.width) {
+                left = rect.left - mapRect.left - 420;
             }
-            if (top + 200 > mapRect.height) {
-                top = rect.top - mapRect.top - 220;
+            if (top + 350 > mapRect.height) {
+                top = rect.top - mapRect.top - 370;
             }
             
             infoBox.style.left = left + 'px';
             infoBox.style.top = top + 'px';
+            
+            // QR-Code-Klick-Event für PDF-Öffnung
+            qrContainer.onclick = function() {
+                if (details.pdfUrl && details.pdfUrl !== "") {
+                    window.open(details.pdfUrl, '_blank');
+                }
+            };
         }
         
         // Event-Listener für Einrichtungen (Kreise)
@@ -669,8 +892,7 @@ Bio-Vollwertkost">Kita</div>
             facility.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const name = this.getAttribute('data-name');
-                const info = this.getAttribute('data-info');
-                showInfoBox(this, name, info);
+                showInfoBox(this, name);
             });
         });
         
@@ -687,34 +909,10 @@ Bio-Vollwertkost">Kita</div>
                 label.addEventListener('click', function(e) {
                     e.stopPropagation();
                     const name = correspondingFacility.getAttribute('data-name');
-                    const info = correspondingFacility.getAttribute('data-info');
-                    showInfoBox(this, name, info);
+                    showInfoBox(this, name);
                 });
             }
         });
-        
-        // QR-Code Klick-Funktionalität
-        function setupQRCodeClick() {
-            const qrCode = document.querySelector('.qr-placeholder');
-            if (qrCode) {
-                qrCode.addEventListener('click', function() {
-                    const facilityName = infoTitle.textContent;
-                    // Hier könnten Sie zu einer echten QR-Code-Seite weiterleiten
-                    alert(`QR-Code für ${facilityName} - Hier würde normalerweise eine Weiterleitung zu detaillierten Informationen erfolgen.`);
-                    
-                    // Beispiel für echte Weiterleitung (auskommentiert):
-                    // window.open(`https://example.com/einrichtungen/${facilityName.toLowerCase().replace(/\s+/g, '-')}`, '_blank');
-                });
-            }
-        }
-        
-        // Setup QR-Code nach dem Anzeigen der Info-Box
-        const originalShowInfoBox = showInfoBox;
-        showInfoBox = function(element, name, info) {
-            originalShowInfoBox(element, name, info);
-            // Kurz warten, bis die Info-Box gerendert ist
-            setTimeout(setupQRCodeClick, 100);
-        };
         
         // Klick außerhalb schließt Info-Box
         document.addEventListener('click', function(e) {
@@ -744,6 +942,13 @@ Bio-Vollwertkost">Kita</div>
                 this.style.boxShadow = '0 3px 6px rgba(0, 0, 0, 0.3)';
             });
         });
+        
+        // Escape-Taste schließt Info-Box
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && infoBox.style.display === 'block') {
+                infoBox.style.display = 'none';
+            }
+        });
     </script>
-
-</body></html>
+</body>
+</html>
